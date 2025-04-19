@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     function copyAccount() {
-      const account = "카카오뱅크 3333-18-3174785 허지희"; // ← 여기에 본인 계좌번호 입력
+      const account = "카카오뱅크 3333-18-3174785 허지희"; // ← 본인 계좌번호
       navigator.clipboard.writeText(account)
         .then(() => alert("계좌번호가 복사되었습니다!"))
         .catch(err => alert("복사 실패: " + err));
@@ -14,6 +14,10 @@
 
     function openApp(url) {
       window.location.href = url;
+    }
+
+    function openCmsForm() {
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLScKJCder_9krtxYfFHKhbHGMYNoeFRQXY4ruSShpGslGXwjgQ/viewform', '_blank');
     }
   </script>
   <style>
@@ -26,10 +30,10 @@
       margin-bottom: 20px;
       font-size: 24px;
     }
-    .account-btn {
+    .account-btn, .cms-btn {
       width: 90%;
       max-width: 400px;
-      margin: 20px auto;
+      margin: 10px auto;
       padding: 15px;
       font-size: 18px;
       background-color: #007bff;
@@ -38,8 +42,9 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s;
+      display: block;
     }
-    .account-btn:hover {
+    .account-btn:hover, .cms-btn:hover {
       background-color: #0056b3;
     }
     .bank-container {
@@ -88,42 +93,36 @@
   <!-- 계좌번호 복사 버튼 -->
   <button class="account-btn" onclick="copyAccount()">계좌번호 복사</button>
 
+  <!-- 은행 앱 아이콘들 -->
   <div class="bank-container">
-    <!-- 토스뱅크 -->
     <div class="bank-item" onclick="openApp('supertoss://')">
       <img src="https://play-lh.googleusercontent.com/Yoaqip2U7E9EKghfvnZW1OeanfbjaL3Qqn5TGVDYAqkbXsL3TDNyEp_oBPH5vAPro38=w480-h960-rw" alt="토스뱅크">
       <div class="bank-name">토스뱅크</div>
     </div>
 
-    <!-- 카카오뱅크 -->
     <div class="bank-item" onclick="openApp('kakaobank://')">
       <img src="https://play-lh.googleusercontent.com/6Z_MeUWUyXUmnE57yjYNKQdGvYHk_P8akfoZn0JZNZvsHAqtYFm4bi90m568nYgnqA=w480-h960-rw" alt="카카오뱅크">
       <div class="bank-name">카카오뱅크</div>
     </div>
 
-    <!-- 국민은행 -->
     <div class="bank-item" onclick="openApp('kbbank://')">
       <img src="https://play-lh.googleusercontent.com/K1rBzVJjq9qtSxC2vkWIsp3GPtPOCwLPf1aCJ0tL0TvWdNcAKQKhYwjPMY90XJwyW-E=w480-h960-rw" alt="국민은행">
       <div class="bank-name">국민은행</div>
     </div>
 
-    <!-- 신한은행 -->
     <div class="bank-item" onclick="openApp('shinhan-sr-ansimclick://')">
       <img src="https://play-lh.googleusercontent.com/s34uZDYvN_qe-tioQoDgdLGOq3y15vC2oSFhhhO60yVe1QVBfINgVCpbmrm_UoQSLMg=w480-h960-rw" alt="신한은행">
       <div class="bank-name">신한은행</div>
     </div>
 
-    <!-- 우리은행 -->
     <div class="bank-item" onclick="openApp('NewSmartPib://')">
       <img src="https://play-lh.googleusercontent.com/X0F73sNd54RPhUJCMlRAINxhGKxw18jkBgw4E5F6dIs_7pL5Geg0xWt5taQwisw47ok=w480-h960-rw" alt="우리은행">
       <div class="bank-name">우리은행</div>
     </div>
-
-    <!-- CMS 등록 -->
-    <div class="bank-item" onclick="openApp('https://docs.google.com/forms/d/e/1FAIpQLScKJCder_9krtxYfFHKhbHGMYNoeFRQXY4ruSShpGslGXwjgQ/viewform')">
-      <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/274925477_100417925944614_7718881062124920202_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=AqvesJe5nnEQ7kNvwEtbdhG&_nc_oc=AdkWqDDA_ErMS87rSdvYqhNeqpWJSxdRfYvnRV7WDBj1SPC1PFIU6sVcazkBFhniRu8VG-7qJELG7YOVK-PAcxH8&_nc_zt=23&_nc_ht=scontent-ssn1-1.xx&_nc_gid=IoLkaK8256S9SnWJPDtyLg&oh=00_AfECBfOBr8uypTnhiBE_jggGSUiV6xqsVByxEnkbWQM8Nw&oe=68097269" alt="CMS 등록">
-      <div class="bank-name">CMS 등록</div>
-    </div>
   </div>
+
+  <!-- CMS 등록하기 버튼 -->
+  <button class="cms-btn" onclick="openCmsForm()">CMS 등록하기</button>
+
 </body>
 </html>
